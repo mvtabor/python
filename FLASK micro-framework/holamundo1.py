@@ -7,7 +7,6 @@ def index():
     return 'Hello, world'
 
 @app.route('/fungi')
-
 def fungi():
     return 'fungi'
 
