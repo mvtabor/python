@@ -18,4 +18,5 @@ def libros():
 
 # curl -d "llave1=dato1&llave2=dato2" -X POST http://localhost:5000/libros
 
-# curl nos permite realizar llamadas a nuestro servicio. Le indicamos el tipo de método a utilizar.
+# curl nos permite realizar llamadas a nuestro servicio. Le indicamos el tipo de método a utilizar. Podremos ver los datos que se están enviando a través de un 
+#formulario, haciendo uso del objto "request".
