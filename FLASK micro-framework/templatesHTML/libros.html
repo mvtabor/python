@@ -1,0 +1,6 @@
+<h1>Soy libros</h1>
+<ul>
+  {% for usuario in usuarios %}
+    <li>{{ usuario.username }}</li> <!-- podemos usar esta sintaxis usuario['username']-->
+  {% endfor %}
+</ul>
