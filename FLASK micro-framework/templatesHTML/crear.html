@@ -1,0 +1,17 @@
+{% extends "base.html" %} <!--extendemos desde nuestro html base-->
+
+{% block title %} 
+   Crear Usuario 
+{% endblock %}
+
+{% block content %} <!--bloque de contenido para crear formulario-->
+<form method="post"> <!--etiqueta de formulario con método de post-->
+    <label>Username</label> <!--en este campo indicamos el atributp a agregar-->
+    <input name="username" required /> <!--el atributo de name nos permitirá obtener los datos en python-->
+    <label>Email</label>
+    <input name="email" required />
+    <label>Edad</label>
+    <input name="edad" required />
+    <input type="submit" value="Guardar" /> <!--botón par enviar los datos del formulario-->
+</form>
+    {% endblock %}
