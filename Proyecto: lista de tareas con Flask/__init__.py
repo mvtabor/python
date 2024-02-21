@@ -13,7 +13,10 @@ def create_app(): #nos servirá cuando queramos hacer testing o crear varias ins
         DATABASE=os.environ.get('FLASK_DATABASE'),
     )  #configuramos nuestra app utilizando las variables de entorno
                                #.from_mapping() nos va a permitir variables de configuración
+    from . import db
+    db.init_app(app)
 
+    
     @app.route('/hola')
     def hola():
         return 'Tacos de cabeza'
