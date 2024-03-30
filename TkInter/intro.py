@@ -11,8 +11,10 @@ root.geometry('400x500')
 
 l1= Label(root, text='¡Hola, mundo! Mi primera etiqueta.')
 l2= Label(root, text='¡Adiós, mundo! Segunda etiqueta.')
+l3 = Label(root, text='        ')
 
 l1.grid(row=0, column=0)
-l2.grid(row=1, column=1)
+l2.grid(row=10, column=10)
+l3.grid(row=1, column=1)
 
 root.mainloop()
