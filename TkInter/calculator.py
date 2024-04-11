@@ -1,11 +1,23 @@
 from tkinter import *
 #from tkmacosx import Button #solo para mac, para que tenga la misma apariencia en windows y macOs.
+from tkinter import messagebox
 
 root = Tk()
 root.configure(background='#333333')
 root.title('Calculator')
 root.geometry('386x200')
 
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=1)
+root.grid_columnconfigure(2, weight=1)
+root.grid_columnconfigure(3, weight=1)
+
+root.grid_rowconfigure(0, weight=1)
+root.grid_rowconfigure(1, weight=1)
+root.grid_rowconfigure(2, weight=1)
+root.grid_rowconfigure(3, weight=1)
+root.grid_rowconfigure(4, weight=1)
+root.grid_rowconfigure(5, weight=1)
 
 equation = StringVar()
 
@@ -14,14 +26,14 @@ def press(num):
     equation.set(equation.get() + str(num))
     print(equation.get())
 
-def equalpress():
+def equalpress(): #equalpress(*args):
     try:
         total = str(eval(equation.get()))
         equation.set(total)
     except:
         equation.set('error')
 
-def clear():
+def clear(): #clear(*args):
     equation.set('')
 
 expression_entry = Entry(root, textvariable=equation)
@@ -78,4 +90,14 @@ equal.grid(row=5, column=3, sticky='nswe')
 clear = Button(root, text=' clear ', fg='#fff', bg='#999', command=clear)
 clear.grid(row=5, column=2, sticky='nswe')
 
+#expression_entry.focus()
+#root.bin("<Return>", equalpress)
+#root.bind("<Escape", clear)
 root.mainloop()
+
+
+
+
+
+
+
