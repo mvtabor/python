@@ -20,15 +20,23 @@ c.execute("""
 
 conn.commit()
 
+#Currying
+def complete(id):
+    def _complete():
+        print(id)
+
+    return _complete
+
 def render_todos():
     rows = c.execute("SELECT * FROM todo").fetchall()
     print(rows)
 
     for i in range(0, len(rows)):
-    completed = rows[i][3]
-    description = rows[i][2]
-    l = Checkbutton(frame, text=description, width=42, anchor='w')
-    l.grid(row=i, column=0, sticky='w')
+        id = rows[i][0]
+        completed = rows[i][3]
+        description = rows[i][2]
+        l = Checkbutton(frame, text=description, width=42, anchor='w', command=completed(id))
+        l.grid(row=i, column=0, sticky='w')
 
 def addTodo():
     todo = e.get()
