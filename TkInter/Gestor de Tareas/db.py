@@ -20,23 +20,42 @@ c.execute("""
 
 conn.commit()
 
+def remove(id):
+    def _remove():
+        c.execute('DELETE FROM todo WHERE id = ?', (id, ))
+        conn.commit()
+        render_todos()
+    
+    return _remove
+
 #Currying
 def complete(id):
     def _complete():
-        print(id)
+        todo = c.execute("SELECT * FROM todo WHERE id=?", (id, )).fetchone()
+        c.execute("UPDATE todo SET completed = ? WHERE id = ?", (not todo[3], id))
+        conn.commit()
+        #print(id)
 
     return _complete
 
 def render_todos():
     rows = c.execute("SELECT * FROM todo").fetchall()
-    print(rows)
+    #print(rows)
 
+    for widget in frame.winfo_children():
+        widget.destroy()
+        
     for i in range(0, len(rows)):
         id = rows[i][0]
         completed = rows[i][3]
         description = rows[i][2]
-        l = Checkbutton(frame, text=description, width=42, anchor='w', command=completed(id))
+        color = '#555555' if completed else '#ffffff'
+        l = Checkbutton(frame, text=description, fg=color, width=42, anchor='w', command=completed(id))
         l.grid(row=i, column=0, sticky='w')
+        btn = Button(frame, text='Eliminar', command=remove(id))
+        btn.grid(row=i, column=1)
+        l.select() if completed else l.deselect()
+
 
 def addTodo():
     todo = e.get()
