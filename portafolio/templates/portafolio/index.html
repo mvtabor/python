@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Bienvenido
+{% endblock %}
+
+{% block content %}
+    <div class='hero'>
+        <div class='hero-content'>
+            <div class='left'>
+                <h1>Soy desarrollador</h1>
+                <h1>Luis Angulo</h1>
+                <p>Construyo aplicaciones en Python utilizando bases de datos relacionales.</p>
+                <a href='#contacto' class='btn'>Contáctame</a>
+            </div>
+            <div class='right'>
+                <img src='{{ url_for('static', filename='big-data.png') }}' width=600px />
+            </div>
+        </div>
+    </div>
+{% include "portafolio/section-first.html" %} <!-- include nos permitirá incluir secciones de html, sin que estés en el mismo-->
+{% include "portafolio/section-second.html" %}
+{% include "portafolio/section-third.html" %}
+{% endblock %}
