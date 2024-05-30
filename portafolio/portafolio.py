@@ -10,4 +10,4 @@ def index():
 
 @bp.route('/mail', methods=['POST'])
 def mail():
-    return 'Chancho'
+    return render_template('portafolio/sent_mail.html')
