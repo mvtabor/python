@@ -19,4 +19,27 @@
         </nav>
     </header>
     <section>{% block content %}{% endblock %}</section>
+    <div class='footer'>
+        <div class='center full-width'>
+            <div class='row'>
+                <h3>Contáctame</h3>
+            </div>
+        </div>
+        <div class='center full-width'>
+            <div class='row'>
+                <p> O puedes seguirme en mis redes sociales.</p>
+            </div>
+        </div>
+        <div class='center full-width social-links'>
+            <div class='row'>
+                <a target='_blank' href='https://www.linkedin.com/in/luis-santiago-romero-angulo-4a1013144/'><ima class='social' width=30 src='{{ url_for('static', filename='linkedin.png') }}' /></a>
+                <a target='_blank' href='https://www.facebook.com/mvtabor'><ima class='social' width=30 src='{{ url_for('static', filename='facebook.png') }}' /></a>
+            </div>
+        </div>
+        <div class'made-width'>
+            <div class'row'>
+                <p>Hecho con amor, por Luis Angulo</p>
+            </div>
+        </div>
+    </div>
 </body>
